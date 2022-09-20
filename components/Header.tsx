@@ -2,8 +2,18 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import PopUpUser from './PopUpUser';
 
 function Header() {
+  const [popUpState, setPopUpState] = React.useState('hidden');
+  const clickUser = () => {
+    if (popUpState === 'hidden') {
+      setPopUpState('relative');
+    } else {
+      setPopUpState('hidden');
+    }
+  };
+
   return (
     <div className="flex w-full h-[4.7rem] items-center justify-between border-b border-gray-200 ">
       <div className="flex">
@@ -34,20 +44,27 @@ function Header() {
       </div>
 
       <div className="flex items-center mx-10 h-full">
-        <div className="flex w-32 justify-around items-end border-r border-r-gray-300 pr-5">
-          <div className="cursor-pointer hover:bg-blue-400 transition-all rounded-full p-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-6 h-6 cursor-pointer"
+        <div className=" flex w-32 justify-around items-end border-r border-r-gray-300 pr-5">
+          <div className="hidden xl:block">
+            <div
+              className=" cursor-pointer hover:bg-blue-400 transition-all rounded-full p-1 "
+              onClick={clickUser}
             >
-              <path
-                fillRule="evenodd"
-                d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
-                clipRule="evenodd"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+
+            <PopUpUser state={popUpState} />
           </div>
 
           <Link href={'/notification'}>
@@ -67,12 +84,6 @@ function Header() {
             </div>
           </Link>
         </div>
-
-        {/* <Link href={'/signin'}>
-          <a className="text-blue-900 font-semibold mx-5 h-full flex border-2 border-transparent justify-center items-center hover:border-b-2 hover:border-b-blue-700 ">
-            Sign In
-          </a>
-        </Link> */}
 
         <Link href={'/postjob'}>
           <a className="mx-5 h-full flex border-2 border-transparent justify-center items-center hover:border-b-2 hover:border-b-blue-700 postjob">
