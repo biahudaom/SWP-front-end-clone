@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Messages() {
+function ProjectID() {
   return <div></div>;
 }
 
-export default Messages;
+export default ProjectID;
