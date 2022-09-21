@@ -3,7 +3,7 @@ import Link from 'next/link';
 function ProjectCard() {
   return (
     <Link href={'/findProject/1'}>
-      <div className="w-[26rem] h-72 flex flex-col justify-evenly items-start mx-5 my-5 cursor-pointer border-gray-400 border rounded-lg px-5 relative hover:shadow-md transition-all">
+      <div className="w-[30rem] h-72 flex flex-col justify-evenly items-start mx-5 my-5 cursor-pointer border-gray-400 border rounded-lg px-5 relative hover:shadow-md transition-all xl:w-[26rem]">
         <div className="absolute top-4 right-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
