@@ -17,14 +17,9 @@ function Header() {
   return (
     <div className="flex w-full h-[4.7rem] items-center justify-between border-b border-gray-200 ">
       <div className="flex">
-        <div className="my-5 fill-gray-800 flex justify-center items-center cursor-pointer">
+        <div className="my-3 ml-5 fill-gray-800 flex justify-center items-center cursor-pointer">
           <Link href={'/findProject'}>
-            <Image
-              src="/indeed-logo.svg"
-              width={145}
-              height={38}
-              alt={'logo'}
-            />
+            <Image src="/logo.png" width={50} height={50} alt={'logo'} />
           </Link>
         </div>
 
