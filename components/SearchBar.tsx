@@ -2,7 +2,7 @@ import React from 'react';
 
 function SearchBar() {
   return (
-    <div className="w-9/12 h-60 xl:h-40  flex items-center ">
+    <div className="w-9/12 h-60 xl:h-40 flex items-center ">
       <div className="inline-grid grid-cols-1 xl:grid-cols-7 gap-5 w-full text-center justify-around content-center">
         <input
           type="text"

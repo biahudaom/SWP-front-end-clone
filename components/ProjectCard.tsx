@@ -3,7 +3,7 @@ import Link from 'next/link';
 function ProjectCard() {
   return (
     <Link href={'/findProject/1'}>
-      <div className="w-80 h-96 flex flex-col justify-evenly items-start mx-5 my-5 cursor-pointer border-gray-400 border rounded-lg px-5 relative hover:shadow-md transition-all xl:w-[26rem]">
+      <div className="w-80 h-96 flex flex-col justify-evenly items-start mx-5 my-5 cursor-pointer border-gray-400 border rounded-lg px-5 relative hover:shadow-md transition-all xl:h-80 xl:w-[26rem] 2xl:w-[24rem]">
         <div className="absolute top-4 right-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +57,7 @@ function ProjectCard() {
             <h2 className="pl-3">Thanh Pho Ho Chi Minh</h2>
           </div>
         </div>
-        <div className="flex w-9/12 xl:2-6/12 h-8 items-center rounded-lg justify-around bg-green-200 text-green-800 font-semibold">
+        <div className="flex w-9/12 xl:w-6/12 h-8 items-center rounded-lg justify-around bg-green-200 text-green-800 font-semibold">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

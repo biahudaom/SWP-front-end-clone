@@ -20,12 +20,12 @@ function JobFull({
   typeOfJob,
 }: jobFullProps) {
   return (
-    <div className="w-1/2 my-1 h-full pr-10">
+    <div className="w-full xl:w-1/2 my-1 h-full xl:pr-10 space-y-2">
       <div className="text-2xl font-bold mb-1">{jobName}</div>
       <div className="text-blue-800">{email}</div>
-      <div> {city}</div>
+      <div>{city}</div>
       <div>{time}</div>
-      <button className="w-72 h-10 bg-blue-800 font-bold text-white rounded-lg p-5 hover:bg-blue-900 transition-all flex justify-center items-center self-center hover:shadow-md my-3">
+      <button className="w-56 xl:w-72 xl:h-10 h-12 bg-blue-800 font-bold text-white rounded-lg p-5 hover:bg-blue-900 transition-all flex justify-center items-center self-center hover:shadow-md">
         Apply Now
       </button>
       <div className="text-xl font-semibold my-3">Project Details</div>
