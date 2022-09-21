@@ -6,12 +6,12 @@ import SearchBar from '../../components/SearchBar';
 function dummyPage() {
   return (
     <div className="flex flex-col items-center h-full justify-start">
-      <div className="w-full h-full justify-center hidden xl:flex">
+      <div className="w-full h-full justify-center flex">
         <SearchBar />
       </div>
 
       <div className="w-full border-t border-t-gray-200 h-full flex justify-center">
-        <div className="w-9/12 h-full flex justify-start mt-5 pt-10">
+        <div className="w-10/12 xl:w-9/12 h-full flex flex-col xl:flex-row justify-start  mt-3 xl:mt-5 xl:pt-10">
           <JobFull
             jobName="Tuyển NV Trực page - CSKH thu nhập trên 10tr"
             email="Email Nguoi Dang Project"
