@@ -29,6 +29,25 @@ function Postjob() {
               placeholder='e.g. "Build a website for my business"'
             />
           </div>
+
+          <div>
+            <h1>Project University</h1>
+            <input
+              className="font-normal text-base border border-black rounded-lg h-10 w-full xl:w-11/12 mt-2 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 self-center  xl:col-span-3 focus:shadow-md pl-3"
+              type="text"
+              required
+              placeholder='e.g. "University of Toronto"'
+            />
+          </div>
+          <div>
+            <h1>Project Location</h1>
+            <input
+              className="font-normal text-base border border-black rounded-lg h-10 w-full xl:w-11/12 mt-2 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 self-center  xl:col-span-3 focus:shadow-md pl-3"
+              type="text"
+              required
+              placeholder='e.g. "Toronto, ON'
+            />
+          </div>
           <div>
             <h1>Time to finish </h1>
             <Listbox value={selected} onChange={setSelected}>
@@ -106,7 +125,7 @@ function Postjob() {
             />
           </div>
           <div>
-            <h1>Criteria (At least 3)</h1>
+            <h1>Criteria</h1>
             <input
               className="font-normal text-base border border-black rounded-lg h-10 w-full xl:w-11/12 mt-2 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 self-center  xl:col-span-3 focus:shadow-md pl-3"
               type="text"
