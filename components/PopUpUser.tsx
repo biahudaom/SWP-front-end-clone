@@ -7,7 +7,7 @@ interface PopUpUserProps {
 
 function PopUpUser({ state }: PopUpUserProps) {
   return (
-    <div className={state}>
+    <div className={state} >
       <div className="absolute border rounded-lg bg-white shadow-2xl w-80 h-[25rem] -left-[17.5rem] top-[1.2rem] z-10">
         <div className="flex flex-col justify-between h-full">
           <div>

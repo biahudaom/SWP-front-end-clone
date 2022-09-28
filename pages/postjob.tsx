@@ -1,17 +1,36 @@
 import React from 'react';
 import Image from 'next/image';
 import { Fragment, useState } from 'react';
-import { Listbox, Transition } from '@headlessui/react';
+import { Listbox, Transition, Combobox } from '@headlessui/react';
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/solid';
 
 function Postjob() {
   const people = [
-    { name: 'Less than 1 week' },
-    { name: '1 - 2 weeks' },
-    { name: '2 - 5 weeks' },
-    { name: '5 - 10 weeks' },
-    { name: 'More than 10 weeks' },
+    { id: 1, name: 'Computer Science', unavailable: false },
+    { id: 2, name: 'Information Technology', unavailable: false },
+    { id: 3, name: 'Electrical Engineering', unavailable: false },
+    { id: 4, name: 'Mechanical Engineering', unavailable: true },
+    { id: 5, name: 'Chemical Engineering', unavailable: false },
   ];
+  const fields = [
+    { id: 1, name: 'Computer Science', unavailable: true },
+    { id: 2, name: 'Information Technology', unavailable: false },
+    { id: 3, name: 'Electrical Engineering', unavailable: false },
+    { id: 4, name: 'Mechanical Engineering', unavailable: false },
+    { id: 5, name: 'Chemical Engineering', unavailable: false },
+    { id: 6, name: 'Computer Science', unavailable: true },
+    { id: 7, name: 'Information Technology', unavailable: false },
+    { id: 8, name: 'Electrical Engineering', unavailable: false },
+    { id: 9, name: 'Mechanical Engineering', unavailable: false },
+    { id: 10, name: 'Chemical Engineering', unavailable: false },
+    { id: 11, name: 'Computer Science', unavailable: true },
+    { id: 12, name: 'Information Technology', unavailable: false },
+    { id: 13, name: 'Electrical Engineering', unavailable: false },
+    { id: 14, name: 'Mechanical Engineering', unavailable: false },
+    { id: 15, name: 'Chemical Engineering', unavailable: false },
+  ];
+
+  const [selectedField, setSelectedField] = useState(fields[0]);
 
   const [selected, setSelected] = useState(people[0]);
 
@@ -117,12 +136,62 @@ function Postjob() {
           </div>
           <div>
             <h1>Field Needed </h1>
-            <input
-              className="font-normal text-base border border-black rounded-lg h-10 w-full xl:w-11/12 mt-2 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 self-center  xl:col-span-3 focus:shadow-md pl-3"
-              type="text"
-              required
-              placeholder='e.g. "Web Development, Graphic Design, etc."'
-            />
+
+            <Listbox value={selectedField} onChange={setSelectedField}>
+              <div className="relative bg-gray-100 flex justify-start items-center border border-black rounded-lg h-12 w-full xl:w-11/12 mt-2 ">
+                <Listbox.Button className="relative w-full bg-gray-100 cursor-default rounded-lg  py-2 pl-3 pr-10 text-left focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+                  <span className="block truncate">{selectedField.name}</span>
+                  <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                    <ChevronDownIcon
+                      className="h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </Listbox.Button>
+                <Transition
+                  as={Fragment}
+                  leave="transition ease-in duration-100"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <Listbox.Options className="absolute top-12 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm overflow-x-hidden">
+                    {fields.map((field, fieldIdx) => (
+                      <Listbox.Option
+                        key={fieldIdx}
+                        className={({ active }) =>
+                          `relative cursor-pointer select-none py-2 pl-10 pr-4 flex justify-between hover:scale-105 transition duration-150 ${
+                            active
+                              ? 'bg-amber-100 text-amber-900'
+                              : 'text-gray-900'
+                          }`
+                        }
+                        value={field}
+                      >
+                        {({ selected }) => (
+                          <>
+                            <span
+                              className={`block truncate ${
+                                selected ? 'font-medium' : 'font-normal'
+                              }`}
+                            >
+                              {field.name}
+                            </span>
+                            {selected ? (
+                              <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
+                                <CheckIcon
+                                  className="h-5 w-5 "
+                                  aria-hidden="true"
+                                />
+                              </span>
+                            ) : null}
+                          </>
+                        )}
+                      </Listbox.Option>
+                    ))}
+                  </Listbox.Options>
+                </Transition>
+              </div>
+            </Listbox>
           </div>
           <div>
             <h1>Criteria</h1>
