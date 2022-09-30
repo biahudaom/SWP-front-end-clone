@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import { Fragment, useState } from 'react';
-import { Listbox, Transition } from '@headlessui/react';
+import { Listbox, Transition, Combobox } from '@headlessui/react';
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/solid';
-import DatePicker, { CalendarContainerProps } from 'react-datepicker';
+import DatePicker from 'react-datepicker';
 import { addDays } from 'date-fns';
 
 import 'react-datepicker/dist/react-datepicker.css';
@@ -15,12 +15,12 @@ function Postjob() {
     { id: 3, name: 'Electrical Engineering', unavailable: false },
     { id: 4, name: 'Mechanical Engineering', unavailable: false },
     { id: 5, name: 'Chemical Engineering', unavailable: false },
-    { id: 6, name: 'Computer Science', unavailable: true },
+    { id: 6, name: 'Computer Science', unavailable: false },
     { id: 7, name: 'Information Technology', unavailable: false },
     { id: 8, name: 'Electrical Engineering', unavailable: false },
     { id: 9, name: 'Mechanical Engineering', unavailable: false },
     { id: 10, name: 'Chemical Engineering', unavailable: false },
-    { id: 11, name: 'Computer Science', unavailable: true },
+    { id: 11, name: 'Computer Science', unavailable: false },
     { id: 12, name: 'Information Technology', unavailable: false },
     { id: 13, name: 'Electrical Engineering', unavailable: false },
     { id: 14, name: 'Mechanical Engineering', unavailable: false },
@@ -32,10 +32,33 @@ function Postjob() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(addDays(new Date(), 1));
 
+  const [name, setName] = useState('');
+  const [uni, setUni] = useState('');
+  const [location, setLocation] = useState('');
+  const [skill, setSkill] = useState('');
+  const [criteria1, setCriteria1] = useState('');
+  const [criteria2, setCriteria2] = useState('');
+  const [criteria3, setCriteria3] = useState('');
+  const [desc, setDesc] = useState('');
+
+  const criteria = [criteria1, criteria2, criteria3];
+
+  const dataReturn = {
+    name,
+    uni,
+    location,
+    selectedField,
+    startDate,
+    endDate,
+    desc,
+    skill,
+    criteria,
+  };
+
   return (
     <div className="flex justify-center mt-20">
       <div className="flex justify-between w-8/12 h-screen ">
-        <form className="space-y-5 font-semibold text-lg">
+        <div className="space-y-5 font-semibold text-lg">
           <div className=" text-4xl ">Create a project</div>
           <div>
             <h1>Your Project Name</h1>
@@ -44,6 +67,8 @@ function Postjob() {
               type="text"
               required
               placeholder='e.g. "Build a website for my business"'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
 
@@ -54,6 +79,8 @@ function Postjob() {
               type="text"
               required
               placeholder='e.g. "University of Toronto"'
+              value={uni}
+              onChange={(e) => setUni(e.target.value)}
             />
           </div>
           <div>
@@ -63,6 +90,8 @@ function Postjob() {
               type="text"
               required
               placeholder='e.g. "Toronto, ON'
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
             />
           </div>
           <div>
@@ -94,6 +123,8 @@ function Postjob() {
               type="text"
               required
               placeholder='e.g. "React, Excel, Photoshop, etc."'
+              value={skill}
+              onChange={(e) => setSkill(e.target.value)}
             />
           </div>
           <div>
@@ -162,31 +193,40 @@ function Postjob() {
               type="text"
               required
               placeholder='e.g. "Must be a student at UBC, etc."'
+              value={criteria1}
+              onChange={(e) => setCriteria1(e.target.value)}
             />
             <input
               className="font-normal text-base border border-black rounded-lg h-10 w-full xl:w-11/12 mt-2 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 self-center  xl:col-span-3 focus:shadow-md pl-3"
               type="text"
               required
               placeholder='e.g. "Must have a 3.5 GPA, etc."'
+              value={criteria2}
+              onChange={(e) => setCriteria2(e.target.value)}
             />
             <input
               className="font-normal text-base border border-black rounded-lg h-10 w-full xl:w-11/12 mt-2 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 self-center  xl:col-span-3 focus:shadow-md pl-3"
               type="text"
               required
               placeholder='e.g. "Must be positive."'
+              value={criteria3}
+              onChange={(e) => setCriteria3(e.target.value)}
             />
           </div>
           <div>
             <h1>Project Description </h1>
-            <input
+            <textarea
               className="font-normal text-base border border-black rounded-lg h-24 w-full xl:w-11/12 mt-2 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 self-center xl:col-span-3 focus:shadow-md pl-3"
-              type="text"
               required
               placeholder='e.g. "I need a website for my business that is easy to use and looks good."'
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
             />
           </div>
           <button
-            type="submit"
+            onClick={() => {
+              console.log(dataReturn);
+            }}
             className="w-11/12 h-12 bg-blue-800 font-semibold text-white rounded-lg p-5 hover:bg-blue-900 transition-all flex justify-center items-center self-center hover:shadow-md "
           >
             <h1 className="mr-2">Post Job</h1>
@@ -205,7 +245,7 @@ function Postjob() {
               />
             </svg>
           </button>
-        </form>
+        </div>
         <div className="hidden xl:flex justify-end items-center">
           <Image
             src={'/logoPostJob.png'}
