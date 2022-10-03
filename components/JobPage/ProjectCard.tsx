@@ -1,6 +1,28 @@
 import Link from 'next/link';
 
-function ProjectCard() {
+interface ProjectCardProps {
+  projectName: string;
+  projectSchool: string;
+  projectCity: string;
+  projectTime: string;
+  projectSkills: string;
+  projectField: string;
+  projectCriteria1: string;
+  projectCriteria2: string;
+  projectCriteria3: string;
+}
+
+function ProjectCard({
+  projectName,
+  projectSchool,
+  projectCity,
+  projectTime,
+  projectSkills,
+  projectField,
+  projectCriteria1,
+  projectCriteria2,
+  projectCriteria3,
+}: ProjectCardProps) {
   return (
     <Link href={'/findProject/1'}>
       <div className="w-80 h-96 flex flex-col justify-evenly items-start mx-5 my-5 cursor-pointer border-gray-400 border rounded-lg px-5 relative hover:shadow-md transition-all xl:h-80 xl:w-[26rem] 2xl:w-[24rem]">
@@ -19,8 +41,8 @@ function ProjectCard() {
           </svg>
         </div>
         <div className="w-11/12">
-          <div className="font-bold text-xl text-ellipsis overflow-hidden whitespace-nowrap inline-block w-9/12 hover:border-b hover:border-b-black border-b border-b-transparent">
-            Project Web Ban Hang Online Truyen Tranh
+          <div className="font-bold text-xl text-ellipsis overflow-hidden whitespace-nowrap inline-block w-fit hover:border-b hover:border-b-black border-b border-b-transparent my-1">
+            {projectName}
           </div>
           <div className="flex ">
             {' '}
@@ -38,9 +60,9 @@ function ProjectCard() {
               />
               <path d="M12 7.875a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z" />
             </svg>
-            <h2 className="text-md pl-3">Dai Hoc Khoa Hoc Tu Nhien</h2>
+            <h2 className="text-md pl-3">{projectSchool}</h2>
           </div>
-          <div className="text-md flex">
+          <div className="text-md flex mb-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -54,10 +76,10 @@ function ProjectCard() {
               />
             </svg>
 
-            <h2 className="pl-3">Thanh Pho Ho Chi Minh</h2>
+            <h2 className="pl-3">{projectCity}</h2>
           </div>
         </div>
-        <div className="flex w-9/12 xl:w-6/12 h-8 items-center rounded-lg justify-around bg-green-200 text-green-800 font-semibold">
+        <div className="flex w-11/12 xl:w-10/12  h-8 items-center rounded-lg justify-around bg-green-200 text-green-800 font-semibold">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -70,7 +92,7 @@ function ProjectCard() {
               clipRule="evenodd"
             />
           </svg>
-          <div>5 - 10 weeks</div>
+          <div>{projectTime}</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -85,7 +107,7 @@ function ProjectCard() {
           </svg>
         </div>
         <div>
-          <div className="flex justify-between h-8">
+          <div className="flex h-8">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -100,7 +122,7 @@ function ProjectCard() {
               <path d="M5.26 17.242a.75.75 0 10-.897-1.203 5.243 5.243 0 00-2.05 5.022.75.75 0 00.625.627 5.243 5.243 0 005.022-2.051.75.75 0 10-1.202-.897 3.744 3.744 0 01-3.008 1.51c0-1.23.592-2.323 1.51-3.008z" />
             </svg>
 
-            <p className="px-2"> JavaScript, HTML, CSS</p>
+            <p className="px-2">{projectSkills}</p>
           </div>
           <div className="flex">
             <svg
@@ -112,15 +134,13 @@ function ProjectCard() {
               <path d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z" />
             </svg>
 
-            <p className="px-2">Digital Marketing</p>
+            <p className="px-2">{projectField}</p>
           </div>
         </div>
         <ul className="list-disc text-xs pl-6 text-gray-600 ">
-          <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </li>
-          <li className="py-2">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.{' '}
-          </li>
-          <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. </li>
+          <li>{projectCriteria1} </li>
+          <li className="py-2">{projectCriteria2} </li>
+          <li>{projectCriteria3} </li>
         </ul>
       </div>
     </Link>

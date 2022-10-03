@@ -6,7 +6,7 @@ function SearchBar() {
       <div className="inline-grid grid-cols-1 xl:grid-cols-7 gap-5 w-full text-center justify-around content-center">
         <input
           type="text"
-          className="w-full h-12 border border-gray-500 rounded-lg mr-3 pl-3 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 self-center  xl:col-span-3 focus:shadow-md"
+          className="w-full h-12 border border-gray-500 rounded-lg mr-3 pl-3  focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 self-center xl:col-span-3 focus:shadow-md"
           placeholder="Search for projects"
         />
 
