@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import JobFull from '../../components/JobFull';
-import JobDescription from '../../components/JobDescription';
+import JobDescription from '../../components/JobPage/JobDescription';
+import JobFull from '../../components/JobPage/JobFull';
 import SearchBar from '../../components/SearchBar';
 
 function ProjectID() {
