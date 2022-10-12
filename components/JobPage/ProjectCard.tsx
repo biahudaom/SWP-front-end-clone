@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 interface ProjectCardProps {
+  projectId: string;
   projectName: string;
   projectSchool: string;
   projectCity: string;
@@ -13,6 +14,7 @@ interface ProjectCardProps {
 }
 
 function ProjectCard({
+  projectId,
   projectName,
   projectSchool,
   projectCity,
@@ -24,7 +26,7 @@ function ProjectCard({
   projectCriteria3,
 }: ProjectCardProps) {
   return (
-    <Link href={'/findProject/1'}>
+    <Link href={`/findProject/${projectId}`}>
       <div className="w-80 h-96 flex flex-col justify-evenly items-start mx-5 my-5 cursor-pointer border-gray-400 border rounded-lg px-5 relative hover:shadow-md transition-all xl:h-80 xl:w-[26rem] 2xl:w-[24rem]">
         <div className="absolute top-4 right-4">
           <svg

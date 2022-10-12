@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface jobFullProps {
-  desc: string;
+  desc: string | undefined;
 }
 
 function JobDescription({ desc }: jobFullProps) {

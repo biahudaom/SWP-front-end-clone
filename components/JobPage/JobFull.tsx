@@ -1,13 +1,13 @@
 import React from 'react';
 
 interface jobFullProps {
-  jobName: string;
-  email: string;
-  school: string;
-  city: string;
-  time: string;
-  numberOfPeople: string;
-  typeOfJob: string;
+  jobName: string | undefined;
+  email: string | undefined;
+  school: string | undefined;
+  city: string | undefined;
+  time: string | undefined;
+  numberOfPeople: string | undefined;
+  typeOfJob: string | undefined;
 }
 
 function JobFull({
